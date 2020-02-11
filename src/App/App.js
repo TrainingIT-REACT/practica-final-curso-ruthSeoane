@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+//Mis componentes
+import NavBar from './navBar/NavBar';
+
 // Css
 import './App.css';
-import './nav-bar/NavBar.js'
-import NavBar from './nav-bar/NavBar.js';
+import './navBar/NavBar.css'
 
 class App extends Component {
   constructor(props) {
@@ -31,9 +33,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-      <NavBar/>
       <div className="App">
+        <NavBar/>        
         <h1>Plantilla de la práctica final!</h1>
         <p>
           Esta plantilla contiene todo lo necesario para comenzar a
@@ -57,7 +58,6 @@ class App extends Component {
           No olvides pasarte por el foro si tienes alguna duda sobre la práctica final
           o la plantilla :).
         </p>
-        </div>
       </div>
     );
   }
