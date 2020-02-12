@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
 //Mis componentes
-import NavBar from './navBar/NavBar';
+import Loader from './Loader/Loader';
 
 // Css
 import './App.css';
-import './navBar/NavBar.css'
+import './navBar/NavBar.css';
+
+//Lazy
+const NavBar = React.lazy(()=>import('./navBar/NavBar'));
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <React.Suspense fallback ={<Loader/>}>
         <NavBar/>        
         <h1>Plantilla de la práctica final!</h1>
         <p>
@@ -58,6 +62,7 @@ class App extends Component {
           No olvides pasarte por el foro si tienes alguna duda sobre la práctica final
           o la plantilla :).
         </p>
+        </React.Suspense>
       </div>
     );
   }

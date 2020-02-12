@@ -3,29 +3,38 @@
     width:100%;
   }
   
-  .navBar .elemento.active {
-    text-decoration: none;
-    font-weight: bold;
-    background-color:#ffd433;
-    color: black;
-    margin: 0;
-  }
+.navBar .elemento.active {
+  text-decoration: none;
+  font-weight: bold;
+  background-color:#ffd433;
+  color: black;
+  margin: 0;
+}
   
-  .navBar .elemento{
-    color: white;
-    display: inline-block;
-    border-right: solid 0.5px ;
-    padding: 1%;
-    margin: 0;
-  }
+.navBar .elemento{
+  color: white;
+  display: inline-block;
+  border-right: solid 0.5px ;
+  padding: 1%;
+  margin: 0;
+}
 
-  .navBar .elemento.perfil{
-    float: right;
-    border-left: solid 0.5px ;
-    border-right: none;
-  }
+.navBar .elemento.perfil{
+  float: right;
+  border-left: solid 0.5px ;
+  border-right: none;
+}
 
 
 svg path{
   fill: #fff;
+}
+
+svg { 
+  position:absolute;
+  
+}
+
+.navBar .elemento.active svg path{
+  fill: rgb(15, 15, 15);
 }
