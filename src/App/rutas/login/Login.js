@@ -11,7 +11,10 @@ class Login extends React.Component{
             {({ signedIn, updateUser }) => {
                 return <Route render={(props) =>
                     signedIn ? (
-                        <Redirect to="/" />
+                        // <Redirect to="/" />
+                        <div className="form">
+                                    <button onClick={() => updateUser(false)}>Salir</button>
+                                </div>
                     ) : (
                         <div id="login">
                             <div className="contentForm">
