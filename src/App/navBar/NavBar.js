@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
+//Mis componentes
+import UserContext from '../privateRoute/UserContext';
+import PrivateRoute from './../privateRoute/PrivateRoute';
+import Login from './../rutas/login/Login';
 
 // Css
 import './NavBar.css'
@@ -13,17 +17,28 @@ const MiMusica = ({ match }) => <div>
   <p>Aqui iria la musica personalizada</p>
 </div>;
 
-// Este componente define rutas anidadas
-const Perfil = ({ match }) => <div>
-  <p>Aqui iria el perfil del usuario</p>
-</div>;
 
 class NavBar extends Component{
 
+    constructor(props){
+      super(props);
+      this.updateUser = this.updateUser.bind(this);
+
+      this.state = {
+        signedIn: false,
+        updateUser: this.updateUser,
+      }
+    }
+
+    updateUser(signedIn){
+      this.setState(()=>({signedIn}))
+    }
+
     render(){
 
-        return (
+        return (    
             <Router>
+              <UserContext.Provider value={this.state}>
               <div className="App container">
                 <div className="navBar">
                   <NavLink exact activeClassName="active" to="/" className="elemento">Inicio</NavLink>
@@ -36,11 +51,11 @@ class NavBar extends Component{
                   </NavLink>
                 </div>
                 <Route path="/" exact component={Home}/>
-                <Route path="/mi_musica" component={MiMusica}/>
-                <Route path="/perfil" component={Perfil}/>
+                <PrivateRoute path="/mi_musica" component={MiMusica}/>
+                <Route path="/perfil" component={Login}/>
               </div>
+              </UserContext.Provider>
             </Router>
-
         )
 
     }

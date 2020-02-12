@@ -1,0 +1,26 @@
+import React from 'react';
+import {Route, Redirect } from "react-router-dom";
+
+import UserContext from './UserContext';
+
+
+const PrivateRoute = ({ component: Component, ...others }) => {
+    return ( 
+        <UserContext.Consumer>
+            { ({ signedIn }) => { 
+                return <Route {...others} render={(props) => 
+                    signedIn ? ( 
+                        <Component {...props} />
+                    ) : ( 
+                        <Redirect to={{ 
+                            pathname: '/perfil', 
+                            state: { message: 'Por favor, haz login primero' } 
+                        }} /> 
+                    ) 
+                } /> 
+            }} 
+        </UserContext.Consumer> 
+    ); 
+}
+
+export default PrivateRoute;
