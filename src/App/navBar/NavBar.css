@@ -19,12 +19,19 @@
   margin: 0;
 }
 
-.navBar .elemento.perfil{
+.navBar .elemento.dropdown{
   float: right;
   border-left: solid 0.5px ;
   border-right: none;
 }
 
+.navBar .elemento.dropdown.active{
+  text-decoration: none;
+  font-weight: bold;
+  background-color:#ffd433;
+  color: black;
+  margin: 0;
+}
 
 svg path{
   fill: #fff;
@@ -38,3 +45,32 @@ svg {
 .navBar .elemento.active svg path{
   fill: rgb(15, 15, 15);
 }
+
+/*************/
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #2e3e51;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #fff;
+  padding: 8%;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ffd433;
+  color: black;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
