@@ -1,37 +1,55 @@
 import React from 'react';
 
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 
 import UserContext from "../../privateRoute/UserContext";
 
+
 class Login extends React.Component{
+    constructor(props){
+
+        super(props);
+
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+
 
     componentDidMount() {
-        document.getElementById("botonOrigen").classList.add("active")
-      }
+        document.getElementById("botonOrigen").classList.add("active");
+ 
+             
+            // console.log(this.props.location.state.message);
 
-      componentWillUnmount(){
-        document.getElementById("botonOrigen").classList.remove("active")   
-      }
+        
+      };
 
+
+    componentWillUnmount(){
+    document.getElementById("botonOrigen").classList.remove("active")   
+    }
+
+    onSubmit(e){
+        
+    }
 
     render(){
         return <UserContext.Consumer>
             {({ signedIn, updateUser }) => {
                 return <Route render={(props) =>
                     signedIn ? (
-                        // <Redirect to="/" />
-                        <div className="form">
-                                    <button onClick={() => updateUser(false)}>Salir</button>
-                                </div>
+                        <Redirect to={{ 
+                            pathname: "/mi_musica", 
+                            state: { message: '' } 
+                        }} /> 
                     ) : (
-                        <div id="login">
-                            <div className="contentForm">
+                        <div>
+                            <form onSubmit={this.onSubmit} className="contentForm">
                                 <div className="form">
-                                    <button onClick={() => updateUser(true)}>Entrar</button>
+                                    <button type="submit" onClick={() => {updateUser(true)}}>Entrar</button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     )
                 } />

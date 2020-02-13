@@ -10,17 +10,13 @@ import DropdowContent from './DropdowContent';
 import Login from './../rutas/login/Login';
 import Perfil from './../rutas/perfil/Perfil';
 import Adios from './../rutas/adios/Adios';
+import MiMusica from './../rutas/miMusica/MiMusica';
 
 // Css
 import './NavBar.css'
 
 // Componente inicial
 const Home = () => <p>Esta es la página principal.</p>;
-
-// Este componente define rutas anidadas
-const MiMusica = ({ match }) => <div>
-  <p>Aqui iria la musica personalizada</p>
-</div>;
 
 
 class NavBar extends Component{
@@ -39,12 +35,12 @@ class NavBar extends Component{
  
   updateUser(signedIn){
 
-    this.setState(()=>({signedIn}))
+    this.setState(()=>({signedIn}));
 
   }
 
   render(){
-
+    
     return (    
         <Router>
           <UserContext.Provider value={this.state}>
@@ -65,7 +61,7 @@ class NavBar extends Component{
               </div>
               <Route path="/" exact component={Home}/>
               <PrivateRoute path="/mi_musica" component={MiMusica}/>
-              <Route path="/login" component={Login}/>
+              <Route exact path="/login" component={Login}/>
               <Route path="/perfil" component={Perfil}/>
               <Route path="/logout" component={Adios}/>
             </div>
