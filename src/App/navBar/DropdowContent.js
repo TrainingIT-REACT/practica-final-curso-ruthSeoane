@@ -14,7 +14,7 @@ class DropdowContent extends Component{
                 signedIn ? (
                     <div className="dropdown-content">
                 <NavLink to="/perfil">Perfil</NavLink>
-                <NavLink to="/perfil">Log out</NavLink>
+                <a onClick={() => updateUser(false)} class="pers">Log out</a>
             </div>
                 ) : (
                     <div className="dropdown-content">

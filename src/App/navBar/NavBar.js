@@ -55,9 +55,7 @@ class NavBar extends Component{
                       </svg>                    
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mi perfil
                     </div>              
-                    <div id="dropdown-content">
                       <DropdowContent/>
-                    </div>
                   </div> 
               </div>
               <Route path="/" exact component={Home}/>
