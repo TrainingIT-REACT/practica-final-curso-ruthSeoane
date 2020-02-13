@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import ReactDOM from 'react-dom';
 
 //Mis componentes
 import UserContext from '../privateRoute/UserContext';
 import PrivateRoute from './../privateRoute/PrivateRoute';
-import Login from './../rutas/login/Login';
 import DropdowContent from './DropdowContent';
+
+//Mis paginas
+import Login from './../rutas/login/Login';
+import Perfil from './../rutas/perfil/Perfil';
+import Adios from './../rutas/adios/Adios';
 
 // Css
 import './NavBar.css'
@@ -33,9 +36,11 @@ class NavBar extends Component{
     }
   }
 
-
+ 
   updateUser(signedIn){
+
     this.setState(()=>({signedIn}))
+
   }
 
   render(){
@@ -60,7 +65,9 @@ class NavBar extends Component{
               </div>
               <Route path="/" exact component={Home}/>
               <PrivateRoute path="/mi_musica" component={MiMusica}/>
-              <Route path="/perfil" component={Login}/>
+              <Route path="/login" component={Login}/>
+              <Route path="/perfil" component={Perfil}/>
+              <Route path="/logout" component={Adios}/>
             </div>
           </UserContext.Provider>
         </Router>

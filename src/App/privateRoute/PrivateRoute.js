@@ -13,7 +13,7 @@ const PrivateRoute = ({ component: Component, ...others }) => {
                         <Component {...props} />
                     ) : ( 
                         <Redirect to={{ 
-                            pathname: '/perfil', 
+                            pathname: '/login', 
                             state: { message: 'Por favor, haz login primero' } 
                         }} /> 
                     ) 

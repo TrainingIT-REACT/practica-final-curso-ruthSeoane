@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 
 import './NavBar.css'
 
 import UserContext from "../privateRoute/UserContext";
 
 class DropdowContent extends Component{
+
 
     render(){
         return <UserContext.Consumer>
@@ -14,12 +15,12 @@ class DropdowContent extends Component{
                 signedIn ? (
                     <div className="dropdown-content">
                 <NavLink to="/perfil">Perfil</NavLink>
-                <a onClick={() => updateUser(false)} class="pers">Log out</a>
+                <NavLink to="/logout" onClick={() => updateUser(false)}>Log out</NavLink>
             </div>
                 ) : (
                     <div className="dropdown-content">
-                <NavLink to="/perfil">Log in</NavLink>
-                <NavLink to="/perfil">Sign in</NavLink>
+                <NavLink to="/login">Log in</NavLink>
+                <NavLink to="/login">Sign in</NavLink>
             </div>
                 )
             } />
