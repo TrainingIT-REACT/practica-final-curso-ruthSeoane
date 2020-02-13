@@ -46,10 +46,6 @@ svg {
   fill: rgb(15, 15, 15);
 }
 
-/*************/
-
-
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -57,20 +53,20 @@ svg {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  font-weight: normal;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
   color: #fff;
   padding: 8%;
   display: block;
 }
 
-/* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background-color: #ffd433;
   color: black;
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
+
+
