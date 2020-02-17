@@ -2,6 +2,15 @@ import React from 'react';
 
 class Perfil extends React.Component{
 
+    componentDidMount() {
+        document.getElementById("botonOrigen").classList.add("active");  
+      };
+
+
+    componentWillUnmount(){
+    document.getElementById("botonOrigen").classList.remove("active")   
+    }
+
     render(){
         return(
             <div>

@@ -1,6 +1,7 @@
 .navBar{
     background-color: #2e3e51;
     width:100%;
+    position: relative;
   }
   
 .navBar .elemento.active {
@@ -20,9 +21,10 @@
 }
 
 .navBar .elemento.dropdown{
-  float: right;
   border-left: solid 0.5px ;
   border-right: none;
+  right: 0;
+  position: absolute;
 }
 
 .navBar .elemento.dropdown.active{
@@ -50,10 +52,11 @@ svg {
   display: none;
   position: absolute;
   background-color: #2e3e51;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  width: 120px;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  /* z-index: 1; */
   font-weight: normal;
+  right: 0;
 }
 
 .dropdown-content a {

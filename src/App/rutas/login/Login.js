@@ -11,27 +11,20 @@ class Login extends React.Component{
 
         super(props);
 
-        this.onSubmit = this.onSubmit.bind(this);
+        //Referencias
+        this.inputName = React.createRef();
+
     }
 
 
 
     componentDidMount() {
-        document.getElementById("botonOrigen").classList.add("active");
- 
-             
-            // console.log(this.props.location.state.message);
-
-        
+        document.getElementById("botonOrigen").classList.add("active");  
       };
 
 
     componentWillUnmount(){
     document.getElementById("botonOrigen").classList.remove("active")   
-    }
-
-    onSubmit(e){
-        
     }
 
     render(){
@@ -44,12 +37,13 @@ class Login extends React.Component{
                             state: { message: '' } 
                         }} /> 
                     ) : (
-                        <div>
-                            <form onSubmit={this.onSubmit} className="contentForm">
-                                <div className="form">
-                                    <button type="submit" onClick={() => {updateUser(true)}}>Entrar</button>
-                                </div>
-                            </form>
+
+                        <div className="contentForm">
+                            <div className="form">
+                            <label htmlFor="name">Nombre</label>
+                            <input id="name" type="text" ref={this.inputName}/>
+                                <button onClick={() => {updateUser(true, this.inputName.current.value)}}>Entrar</button>
+                            </div>
                         </div>
                     )
                 } />
