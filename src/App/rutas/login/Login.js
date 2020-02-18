@@ -4,20 +4,10 @@ import { Route, Redirect } from 'react-router-dom';
 
 
 import UserContext from "../../privateRoute/UserContext";
-
+import Update from "./Update";
 
 class Login extends React.Component{
-    constructor(props){
-
-        super(props);
-
-        //Referencias
-        this.inputName = React.createRef();
-
-    }
-
-
-
+  
     componentDidMount() {
         document.getElementById("botonOrigen").classList.add("active");  
       };
@@ -29,7 +19,7 @@ class Login extends React.Component{
 
     render(){
         return <UserContext.Consumer>
-            {({ signedIn, updateUser }) => {
+            {({ signedIn }) => {
                 return <Route render={(props) =>
                     signedIn ? (
                         <Redirect to={{ 
@@ -40,14 +30,13 @@ class Login extends React.Component{
 
                         <div className="contentForm">
                             <div className="form">
-                            <label htmlFor="name">Nombre</label>
-                            <input id="name" type="text" ref={this.inputName}/>
-                                <button onClick={() => {updateUser(true, this.inputName.current.value)}}>Entrar</button>
+                                <Update/>
                             </div>
                         </div>
                     )
                 } />
             }}
+            
         </UserContext.Consumer>;
     }
 }

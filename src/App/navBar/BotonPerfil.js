@@ -13,7 +13,6 @@ class BotonPerfil extends Component{
             return (
                 signedIn ? (
                     <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{username}
-                    {console.log(username)}
                     </div>            
                 ) : (
                     
