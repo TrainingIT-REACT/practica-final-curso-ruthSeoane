@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 // Action creators
 import { updateName, updateMail, updatePass } from '../../store/actions/UserAction';
+
+
 import UserContext from "../../privateRoute/UserContext";
 
 
@@ -11,33 +13,28 @@ const Update = ({ updateName, updateMail, updatePass }) => {
   const inputMail = React.createRef();
   const inputPass = React.createRef();
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    updateName(inputName.current.value);
-    inputName.current.value = '';
-    
-    updateMail(inputMail.current.value);
-    inputMail.current.value = '';
-
-    updatePass(inputPass.current.value);
-    inputPass.current.value = '';
-    console.log("Entro");
-  }
+  const onSubmit = (name, mail, pass) => {
+    updateName(name);
+    updateMail(mail);
+    updatePass(pass);
+    }
 
   return (
-<form onSubmit={onSubmit}>
-        <label htmlFor="name">Nombre:</label>
-        <input id="name" type="text" ref={inputName} />
+      <div>
+          <label htmlFor="name">Nombre:</label>
+          <input id="name" type="text" ref={inputName} />
 
-        <label htmlFor="mail">Mail:</label>
-        <input id="mail" type="text" ref={inputMail} />
+          <label htmlFor="mail">Mail:</label>
+          <input id="mail" type="text" ref={inputMail} />
 
-        <label htmlFor="pass">Pass:</label>
-        <input id="pass" type="password" ref={inputPass} />
-
-      <button type="submit">aqui</button>
-        {/* <button onClick={() => {updateUser(true, inputName.current.value)}}>Entrar</button> */}
-    </form>)
+          <label htmlFor="pass">Pass:</label>
+          <input id="pass" type="password" ref={inputPass} />
+          <UserContext.Consumer>
+        {({  updateUser }) => {
+          return(<button onClick={() => {onSubmit(inputName.current.value, inputMail.current.value, inputPass.current.value); updateUser(true);}}>Entrar</button>)
+        }}
+        </UserContext.Consumer>
+      </div>)
 
 }
 
@@ -48,7 +45,15 @@ const mapDispatchToProps = (dispatch) => ({
   updatePass: (pass) => dispatch(updatePass(pass)),
 });
   
+const mapStateToProps = (state) => {
+  return {
+    name: state.name,
+    mail: state.mail,
+    pass: state.pass
+  }
+}
+
 export default connect(
-  () => ({}),
+  mapStateToProps,
   mapDispatchToProps,
 )(Update);

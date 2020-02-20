@@ -1,10 +1,14 @@
 import React from 'react';
+import { Provider } from "react-redux";
 
 import { Route, Redirect } from 'react-router-dom';
 
 
 import UserContext from "../../privateRoute/UserContext";
 import Update from "./Update";
+
+// Store
+import store from './../../store/Store';
 
 class Login extends React.Component{
   
@@ -30,7 +34,9 @@ class Login extends React.Component{
 
                         <div className="contentForm">
                             <div className="form">
-                                <Update/>
+                                <Provider store={store}>
+                                    <Update/>
+                                </Provider>
                             </div>
                         </div>
                     )
