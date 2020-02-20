@@ -22,16 +22,16 @@ const Update = ({ updateName, updateMail, updatePass }) => {
   return (
       <div>
           <label htmlFor="name">Nombre:</label>
-          <input id="name" type="text" ref={inputName} />
+          <input id="name" type="text" ref={inputName} required />
 
           <label htmlFor="mail">Mail:</label>
-          <input id="mail" type="text" ref={inputMail} />
+          <input id="mail" type="text" ref={inputMail} required/>
 
           <label htmlFor="pass">Pass:</label>
-          <input id="pass" type="password" ref={inputPass} />
+          <input id="pass" type="password" ref={inputPass} required />
           <UserContext.Consumer>
         {({  updateUser }) => {
-          return(<button onClick={() => {onSubmit(inputName.current.value, inputMail.current.value, inputPass.current.value); updateUser(true);}}>Entrar</button>)
+          return(<button onClick={() => {onSubmit(inputName.current.value, inputMail.current.value, inputPass.current.value); updateUser(true, inputName.current.value);}}>Entrar</button>)
         }}
         </UserContext.Consumer>
       </div>)
