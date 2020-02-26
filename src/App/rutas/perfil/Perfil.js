@@ -16,11 +16,11 @@ class Perfil extends React.Component{
 
     render(){
         return(
-                <Provider store={store}>
-                    <p>{store.getState().name}</p>
-                    {console.log(store.getState())}
-                    {console.log("algo")}
-                </Provider>
+            <Provider store={store}>
+                <p>Nombre usuario: {store.getState().name}</p>
+                <p>Usuario: {store.getState().mail}</p>
+                {console.log(store.getState())}
+            </Provider>
 
         )
     }

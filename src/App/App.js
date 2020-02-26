@@ -5,12 +5,13 @@ import Loader from './Loader/Loader';
 
 // Css
 import './App.css';
-import './navBar/NavBar.css';
+import './navBar/NavBar.css'; 
 
 
 
 //Lazy
 const NavBar = React.lazy(()=>import('./navBar/NavBar'));
+const BarraReproduccion = React.lazy(()=>import('./barraReproduccion/BarraReproduccion'));
 
 class App extends Component {
 
@@ -18,7 +19,8 @@ class App extends Component {
     return (
       <div className="App">
           <React.Suspense fallback ={<Loader/>}>
-          <NavBar/>        
+          <NavBar/>
+          <BarraReproduccion/>       
           </React.Suspense>
       </div>
     );

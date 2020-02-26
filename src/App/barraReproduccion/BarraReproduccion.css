@@ -1,0 +1,20 @@
+.barraReproduccion{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #2e3e51;
+    text-align: center;
+    padding: 1%;
+}
+
+.barraReproduccion .botonReproduccion{
+  display: inline-block;
+  margin-right: 5%;
+  border-right: solid 0.5px;
+  border-left: solid 0.5px;
+}
+
+.barraReproduccion .botonReproduccion svg{
+    bottom: 0;
+    margin: 1%;
+}
