@@ -1,0 +1,34 @@
+ul.albumList {
+    list-style: none;
+    position: relative;
+    display: block;
+    padding: 0;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+ul.albumList .albumItem{
+    width: 100%;
+    display: inline-block;
+    margin-top: 1%;
+ }
+
+ul.albumList .albumItem img{
+    width: 10%;
+ }
+
+ ul.albumList .albumItem .datos{
+    display: inline-block;
+    margin-left: 1%;
+    
+ }
+
+ ul.albumList .albumItem .datos .nombreAlbum{
+    font-weight: bold;
+    font-size: larger;
+
+ }
+
+
+
+ 

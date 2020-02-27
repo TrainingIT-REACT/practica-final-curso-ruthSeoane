@@ -5,11 +5,14 @@ const initialState = {
     isLoading: false,
     albums: [],
     error: false,
+    albumActual: "",
+    cancionesAlbumActual: [],
+    cancionActual: "",
 }
 
 
 // Implementamos el reducer
-const AlbumReducer = (state = initialState, action) => {
+const AlbumsReducer = (state = initialState, action) => {
   console.log(action.type);
   switch(action.type) {
     case String(getAlbums.pending):
@@ -19,6 +22,7 @@ const AlbumReducer = (state = initialState, action) => {
         error: false,
       };
     case String(getAlbums.fulfilled):
+      console.log(action);
       return {
         ...state,
         isLoading: false,
@@ -36,4 +40,4 @@ const AlbumReducer = (state = initialState, action) => {
   }
 }
 
-export default AlbumReducer;
+export default AlbumsReducer;

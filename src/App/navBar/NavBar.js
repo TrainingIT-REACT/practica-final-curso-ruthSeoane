@@ -12,7 +12,7 @@ import BotonPerfil from './BotonPerfil';
 import Login from './../rutas/login/Login';
 import Perfil from './../rutas/perfil/Perfil';
 import Adios from './../rutas/adios/Adios';
-import MiMusica from '../rutas/miMusica/Albums';
+import NuestrosAlbumes from '../rutas/nuestrosAlbumes/NuestrosAlbumes';
 import Home from '../rutas/home/Home';
 
 // Css
@@ -50,7 +50,7 @@ class NavBar extends Component{
             <div className="App container">
               <div className="navBar">
                 <NavLink exact activeClassName="active" to="/" className="elemento">Inicio</NavLink>
-                <NavLink activeClassName="active" to="/mi_musica" className="elemento">Mi m&uacute;sica</NavLink>
+                <NavLink activeClassName="active" to="/albumes" className="elemento">Nuestros &aacute;lbumes</NavLink>
 
                   <div className="dropdown elemento" id = "botonOrigen">
                     <div className = "perfil">
@@ -64,7 +64,7 @@ class NavBar extends Component{
                   </div> 
               </div>
               <Route path="/" exact component={Home}/>
-              <PrivateRoute exact path="/mi_musica" component={MiMusica}/>
+              <PrivateRoute exact path="/albumes" component={NuestrosAlbumes}/>
               <Route exact path="/login" component={Login}/>
               <Route exact path="/perfil" component={Perfil}/>
               <Route path="/logout" component={Adios}/>

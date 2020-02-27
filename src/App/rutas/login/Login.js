@@ -27,7 +27,7 @@ class Login extends React.Component{
                 return <Route render={(props) =>
                     signedIn ? (
                         <Redirect to={{ 
-                            pathname: "/mi_musica", 
+                            pathname: "/albumes", 
                             state: { message: '' } 
                         }} /> 
                     ) : (
