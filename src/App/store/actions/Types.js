@@ -3,7 +3,10 @@ const actions = [
     // Usuarios
     "UPDATE_NAME",
     "UPDATE_MAIL",
-    "UPDATE_PASS"
+    "UPDATE_PASS",
+    "ALBUMS_LOADING",
+    "ALBUMS_LOADED",
+    "ALBUMS_ERROR",
   ];
   
   // Las convertimos en un objeto

@@ -19,8 +19,8 @@ class App extends Component {
     return (
       <div className="App">
           <React.Suspense fallback ={<Loader/>}>
-          <NavBar/>
-          <BarraReproduccion/>       
+            <NavBar/>
+            <BarraReproduccion/>       
           </React.Suspense>
       </div>
     );

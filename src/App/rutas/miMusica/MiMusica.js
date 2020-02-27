@@ -1,45 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Provider } from "react-redux";
 
-import './MiMusica.css';
+import Albums from "./Albums";
 
+// Store
+import store from './../../store/Store';
 
-
-class MiMusica extends Component{
-    constructor(props) {
-        super(props);
-    
-        this.state = {
-          loading: true,
-          albums: []
-        }
-      }
-    
-      async componentDidMount() {
-        try {
-          const res = await fetch('/albums');
-          const json = await res.json();
-          this.setState((prevState) => ({
-            ...prevState,
-            loading: false,
-            albums: json
-          }));
-        } catch(err) {
-          console.error("Error accediendo al servidor", err);
-        }
-      }
+class MiMusica extends React.Component{
 
     render(){
-        return(
-            <div>
-            { this.state.loading ?
-                <p>Cargando...</p>
-                : <ul>
-                  {this.state.albums.map(album => <li key={album.id}>{album.name}</li>)}
-                </ul>
-              }
-            </div>
-        )
+        return (
+            <Albums/>
 
+        )
     }
 }
 

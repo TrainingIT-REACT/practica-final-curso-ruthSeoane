@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { Provider } from "react-redux";
 
 //Mis componentes
 import UserContext from '../privateRoute/UserContext';
@@ -11,14 +12,14 @@ import BotonPerfil from './BotonPerfil';
 import Login from './../rutas/login/Login';
 import Perfil from './../rutas/perfil/Perfil';
 import Adios from './../rutas/adios/Adios';
-import MiMusica from './../rutas/miMusica/MiMusica';
+import MiMusica from '../rutas/miMusica/Albums';
+import Home from '../rutas/home/Home';
 
 // Css
-import './NavBar.css'
+import './NavBar.css';
 
-// Componente inicial
-const Home = () => <p>Esta es la página principal.</p>;
-
+// Store
+import store from './../store/Store';
 
 class NavBar extends Component{
 
@@ -45,6 +46,7 @@ class NavBar extends Component{
     return (    
         <Router>
           <UserContext.Provider value={this.state}>
+          <Provider store={store}> 
             <div className="App container">
               <div className="navBar">
                 <NavLink exact activeClassName="active" to="/" className="elemento">Inicio</NavLink>
@@ -62,11 +64,12 @@ class NavBar extends Component{
                   </div> 
               </div>
               <Route path="/" exact component={Home}/>
-              <PrivateRoute path="/mi_musica" component={MiMusica}/>
+              <PrivateRoute exact path="/mi_musica" component={MiMusica}/>
               <Route exact path="/login" component={Login}/>
               <Route exact path="/perfil" component={Perfil}/>
               <Route path="/logout" component={Adios}/>
             </div>
+            </Provider>
           </UserContext.Provider>
         </Router>
     )
