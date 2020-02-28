@@ -1,8 +1,16 @@
 import React from 'react';
 
-const AlbumConcreto = () => {
+import AlbumAux from './AlbumInfo';
 
-    return <p>Informacion</p>
+class AlbumConcreto extends React.Component{
+
+    render(){
+        return( 
+        <AlbumAux id={this.props.match.params.id}/>
+        )
+    }
+
+
 }
 
 export default AlbumConcreto;

@@ -13,7 +13,7 @@ import './NuestrosAlbumes.css';
 class Albums extends Component{
     
   componentDidMount() {
-    this.props.getAlbums();
+    this.props.getAlbums();  
   }
 
   renderAlbums(){
@@ -26,14 +26,11 @@ class Albums extends Component{
     }else{
       return <ListaAlbums albums={albums}/>
     }
-  
-  
   }
     
   render(){
       return(
-          <div>
-            
+          <div>       
               { this.renderAlbums() }
           </div>
       )

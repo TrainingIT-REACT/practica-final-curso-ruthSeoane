@@ -14,6 +14,7 @@ import Perfil from './../rutas/perfil/Perfil';
 import Adios from './../rutas/adios/Adios';
 import NuestrosAlbumes from '../rutas/nuestrosAlbumes/NuestrosAlbumes';
 import Home from '../rutas/home/Home';
+import AlbumConcreto from './../rutas/albumConcreto/AlbumConcreto';
 
 // Css
 import './NavBar.css';
@@ -68,6 +69,7 @@ class NavBar extends Component{
               <Route exact path="/login" component={Login}/>
               <Route exact path="/perfil" component={Perfil}/>
               <Route path="/logout" component={Adios}/>
+              <PrivateRoute exact path={"/albumes/:id"} component={AlbumConcreto}/>
             </div>
             </Provider>
           </UserContext.Provider>

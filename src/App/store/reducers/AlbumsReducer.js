@@ -1,13 +1,13 @@
-import { getAlbums } from '../actions/AlbumActions';
+import { getAlbumById, getAlbums, getSongsByAlbum } from '../actions/AlbumActions';
 
 // Estado inicial
 const initialState = {
     isLoading: false,
     albums: [],
     error: false,
-    albumActual: "",
+    albumActual: null,
     cancionesAlbumActual: [],
-    cancionActual: "",
+    cancionActual: null
 }
 
 
@@ -15,26 +15,42 @@ const initialState = {
 const AlbumsReducer = (state = initialState, action) => {
   console.log(action.type);
   switch(action.type) {
-    case String(getAlbums.pending):
+    case String(getAlbums.pending || getAlbumById.pending || getSongsByAlbum.pending):
       return {
         ...state,
         isLoading: true,
         error: false,
+      }; 
+    case String(getAlbums.rejected || getAlbumById.rejected || getSongsByAlbum.rejected):
+      return {
+        ...state,
+        isLoading: false,
+        error: true,
       };
     case String(getAlbums.fulfilled):
-      console.log(action);
       return {
         ...state,
         isLoading: false,
         albums: action.payload,
         error: false,
       };
-    case String(getAlbums.rejected):
+    case String(getAlbumById.fulfilled):
+      console.log("----------------" );
+      console.log(action.payload);
       return {
         ...state,
         isLoading: false,
-        error: true,
+        error: false,
+        albumActual: action.payload,
       };
+    case String(getSongsByAlbum.fulfilled):
+      return{
+        ...state,
+        isLoading: false,
+        error: false,
+        cancionesAlbumActual: action.payload
+      };
+
     default:
       return state;
   }

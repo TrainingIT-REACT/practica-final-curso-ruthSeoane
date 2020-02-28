@@ -2,11 +2,9 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 
-//CSS
-import './NuestrosAlbumes.css';
 
 
-const ListaAlbums = ({ albums }) => {
+const AlbumInfoList = ({ albums }) => {
     return (
         <ul className="albumList">
           {albums.map(album =>   
@@ -23,4 +21,4 @@ const ListaAlbums = ({ albums }) => {
   }
   
 
-export default ListaAlbums;
+export default AlbumInfoList;
