@@ -1,0 +1,8 @@
+ul.cancionesList {
+    list-style: none;
+    position: relative;
+    display: block;
+    padding: 0;
+    margin-right: 5%;
+    margin-left: 5%;
+}

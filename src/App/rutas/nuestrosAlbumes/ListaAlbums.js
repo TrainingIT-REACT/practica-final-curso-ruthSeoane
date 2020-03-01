@@ -13,7 +13,7 @@ const ListaAlbums = ({ albums }) => {
             <li key={album.id} className="albumItem">
               <img src={album.cover} alt="Portada"/>
               <div className = "datos">
-                <NavLink className ="nombreAlbum" to={"/albumes/"+album.id}>{album.name}</NavLink>
+                <NavLink className ="nombreAlbum" to={"/albumes/"+album.id} key={album.id}>{album.name}</NavLink>
                 <div>{album.artist}</div>
               </div>
               <hr/>

@@ -17,9 +17,9 @@ class Albums extends Component{
   }
 
   renderAlbums(){
-    const { isLoading, error, albums } = this.props.AlbumsReducer;
+    const { isLoadingAlbums, error, albums } = this.props.AlbumsReducer;
     
-    if (isLoading){
+    if (isLoadingAlbums){
       return <p>Cargando... </p>
     }else if(error){
       return <p>Hubo un error al obtener los datos</p>

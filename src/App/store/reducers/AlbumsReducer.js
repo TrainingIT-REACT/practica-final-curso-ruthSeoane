@@ -2,7 +2,9 @@ import { getAlbumById, getAlbums, getSongsByAlbum } from '../actions/AlbumAction
 
 // Estado inicial
 const initialState = {
-    isLoading: false,
+    isLoadingAlbums: false,
+    isLoadingAlbum: false,
+    isLoadingSongs: false,
     albums: [],
     error: false,
     albumActual: null,
@@ -13,40 +15,61 @@ const initialState = {
 
 // Implementamos el reducer
 const AlbumsReducer = (state = initialState, action) => {
-  console.log(action.type);
   switch(action.type) {
-    case String(getAlbums.pending || getAlbumById.pending || getSongsByAlbum.pending):
+    case String(getAlbums.pending):
       return {
         ...state,
-        isLoading: true,
+        isLoadingAlbums: true,
         error: false,
       }; 
-    case String(getAlbums.rejected || getAlbumById.rejected || getSongsByAlbum.rejected):
+      case String(getAlbumById.pending):
+        return {
+          ...state,
+          isLoadingAlbum: true,
+          error: false,
+        };
+      case String( getSongsByAlbum.pending):
+        return {
+          ...state,
+          isLoadingSongs: true,
+          error: false,
+        };
+    case String(getAlbums.rejected):
       return {
         ...state,
-        isLoading: false,
+        isLoadingAlbums: false,
+        error: true,
+      };
+    case String(getAlbumById.rejected):
+      return {
+        ...state,
+        isLoadingAlbum: false,
+        error: true,
+      };
+    case String(getSongsByAlbum.rejected):
+      return {
+        ...state,
+        isLoadingSongs: false,
         error: true,
       };
     case String(getAlbums.fulfilled):
       return {
         ...state,
-        isLoading: false,
+        isLoadingAlbums: false,
         albums: action.payload,
         error: false,
       };
     case String(getAlbumById.fulfilled):
-      console.log("----------------" );
-      console.log(action.payload);
       return {
         ...state,
-        isLoading: false,
+        isLoadingAlbum: false,
         error: false,
         albumActual: action.payload,
       };
     case String(getSongsByAlbum.fulfilled):
       return{
         ...state,
-        isLoading: false,
+        isLoadingSongs: false,
         error: false,
         cancionesAlbumActual: action.payload
       };
