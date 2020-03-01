@@ -5,11 +5,6 @@ export const getAlbums = createAsyncAction('ALBUMS', async () => {
     return await res.json();
 });
 
-export const getAlbumById = createAsyncAction('ALBUM', async (id) => {
-  const res = await fetch('/albums?id='+id);
-  return await res.json();
-});
-
 export const getSongsByAlbum = createAsyncAction('SONGS', async (id) => {
   const res = await fetch('/songs?album_id='+id);
   return await res.json();

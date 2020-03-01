@@ -17,9 +17,8 @@ class Perfil extends React.Component{
     render(){
         return(
             <Provider store={store}>
-                <p>Nombre usuario: {store.getState().name}</p>
-                <p>Usuario: {store.getState().mail}</p>
-                {console.log(store.getState())}
+                <p>Nombre usuario: {store.getState().UserReducer.name}</p>
+                <p>Usuario: {store.getState().UserReducer.mail}</p>
             </Provider>
 
         )

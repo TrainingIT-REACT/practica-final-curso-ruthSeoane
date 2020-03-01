@@ -2,20 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 //Otros componentes
-import CancionesInfo from './CancionesInfo';
+import AlbumInfo from './AlbumInfo';
 
 //Actions
-import { getAlbumById, getSongsByAlbum } from '../../store/actions/AlbumActions';
+import { getSongsByAlbum } from '../../store/actions/AlbumActions';
 
 class AlbumConcreto extends React.Component{
 
     componentDidMount(){
-        this.props.getAlbumById(this.props.match.params.id);
         this.props.getSongsByAlbum(this.props.match.params.id);
     }
 
     render(){
-        const { isLoadingAlbum, isLoadingSongs, error, albumActual, cancionesAlbumActual } = this.props.AlbumsReducer;
+        const { isLoadingAlbum, isLoadingSongs, error, albums, cancionesAlbumActual } = this.props.AlbumsReducer;
+
+        console.log(this.props);
 
         if (isLoadingAlbum){
             return <p>Cargando informaci&oacute;n del &aacute;lbum...</p>
@@ -25,20 +26,17 @@ class AlbumConcreto extends React.Component{
             return <p>Se produjo un error inesperado</p>
         }else {             
             return( 
-            <CancionesInfo canciones={cancionesAlbumActual}/>
+            <AlbumInfo album = {albums[this.props.match.params.id - 1]} canciones={cancionesAlbumActual}/>
             )
         }
 
     }
-
-
 
 }
 
 const mapStateToProps = (state) => ({ ...state });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAlbumById: (id) => dispatch(getAlbumById(id)),
   getSongsByAlbum: (id) => dispatch(getSongsByAlbum(id)),
 });
 

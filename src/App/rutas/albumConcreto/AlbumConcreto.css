@@ -1,8 +1,48 @@
-ul.cancionesList {
+
+.xeral{
+    margin-top: 2%;
+    padding: 0;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: left;
+    width:100%;
+
+}
+
+.xeral .albumInfo{
+    display: table;
+}
+
+.xeral .albumInfo .portada{
+    width: 15%;
+    display: table-cell;
+    vertical-align: bottom;
+    border: none;
+
+}
+.xeral .albumInfo img{
+    width: 100%;
+
+}
+
+.xeral .albumInfo .datosAlbum{
+    width: 85%;
+    display: table-cell;
+    vertical-align: bottom;
+    padding-left: 2%;
+}
+
+.xeral .albumInfo h1{
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: left;
+}
+
+
+.xeral .cancionesList{
     list-style: none;
     position: relative;
     display: block;
-    padding: 0;
-    margin-right: 5%;
-    margin-left: 5%;
+    padding: 0;  
 }
+
