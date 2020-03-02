@@ -2,26 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //Actions
-import { getBestAlbums } from '../../store/actions/AlbumActions';
+import { getBestSongs } from '../../store/actions/AlbumActions';
 
 //Componentes
-import ListaMusicaRecomendada from './ListaMusicaRecomendada';
+import ListaCancionesRecomendadas from './ListaCancionesRecomendadas';
 
-class MusicaRecomendada extends Component{
+class CancionesRecomendadas extends Component{
     
   componentDidMount() {
-    this.props.getBestAlbums();  
+    this.props.getBestSongs();  
   }
 
   renderAlbums(){
-    const { isLoading, error, bestAlbums } = this.props.AlbumsReducer;
+    const { isLoading, error, bestSongs } = this.props.AlbumsReducer;
     
     if (isLoading){
-      return <p>Cargando... </p>
+      return <p>Cargando canciones... </p>
     }else if(error){
       return <p>Hubo un error al obtener los datos</p>
     }else{
-      return <ListaMusicaRecomendada albums={bestAlbums}/>
+      return <ListaCancionesRecomendadas canciones={bestSongs}/>
     }
   }
     
@@ -38,10 +38,10 @@ class MusicaRecomendada extends Component{
 const mapStateToProps = (state) => ({ ...state });
 
 const mapDispatchToProps = (dispatch) => ({
-    getBestAlbums: () => dispatch(getBestAlbums()),
+    getBestSongs: () => dispatch(getBestSongs()),
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MusicaRecomendada);
+)(CancionesRecomendadas);

@@ -5,12 +5,12 @@ import { NavLink } from "react-router-dom";
 //CSS
 import './Home.css'
 
-class ListaMusicaRecomendada extends React.Component {
+class ListaAlbumesRecomendados extends React.Component {
 
 
     render(){
         
-        let songs=this.props.albums.map((album, i)=>{
+        let albumes=this.props.albums.map((album, i)=>{
             return <div className="infoAlbum" key={i}>
         
                 <div className="portadaAlbum">    
@@ -32,7 +32,7 @@ class ListaMusicaRecomendada extends React.Component {
                 <h2>Hoy te recomendamos estos &aacute;lbumes: </h2>
                 
                 <div className="albumes">
-                    {songs}
+                    {albumes}
                 </div>
                 
         </div>
@@ -41,4 +41,4 @@ class ListaMusicaRecomendada extends React.Component {
   }
   
 
-export default ListaMusicaRecomendada;
+export default ListaAlbumesRecomendados;

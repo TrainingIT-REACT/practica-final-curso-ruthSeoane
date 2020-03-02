@@ -23,3 +23,24 @@
 .mejoresAlbumes .albumes .portadaAlbum img{
     width: 40%;
 }
+
+
+.mejoresCanciones{
+    margin-top: 2%;
+    padding: 0;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+}
+
+.mejoresCanciones .canciones{
+    width: 100%;
+    display: table;
+}
+
+.mejoresCanciones .canciones .infoCanciones{
+    display: table-cell;
+    vertical-align: bottom;
+    border: none;
+    width: 25%; 
+}

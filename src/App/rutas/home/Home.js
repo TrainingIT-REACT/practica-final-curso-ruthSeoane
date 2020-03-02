@@ -5,7 +5,8 @@ import { Provider } from "react-redux";
 import store from './../../store/Store';
 
 //Componentes
-import MusicaRecomendada from './MusicaRecomendada';
+import AlbumesRecomendados from './AlbumesRecomendados';
+import CancionesRecomendadas from './CancionesRecomendadas';
 
 class Home extends Component{
 
@@ -14,7 +15,8 @@ class Home extends Component{
         return (
             <div>
                 <Provider store={store}>
-                    <MusicaRecomendada/>
+                    <AlbumesRecomendados/>
+                    <CancionesRecomendadas/>
                 </Provider>
             </div>
         )}
