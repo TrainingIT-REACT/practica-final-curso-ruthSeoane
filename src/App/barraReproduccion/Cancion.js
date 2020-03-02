@@ -9,10 +9,10 @@ const ReproducirCancion = () => {
       <div>
           
           <UserContext.Consumer>
-        {({  cancionActual }) => {
-          return(<div>{cancionActual}
-            </div> )
-        }}
+          {({  cancionActual }) => {
+            return(<div>{cancionActual.name}
+              </div> )
+          }}
         </UserContext.Consumer>
       </div>)
 

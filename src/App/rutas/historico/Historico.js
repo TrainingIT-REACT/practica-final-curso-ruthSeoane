@@ -7,7 +7,7 @@ import store from './../../store/Store';
 //CSS
 import './Historico.css';
 
-class Historico extends React.Component{
+class Historial extends React.Component{
 
     componentDidMount() {
         document.getElementById("botonOrigen").classList.add("active");  
@@ -51,4 +51,4 @@ class Historico extends React.Component{
     }
 }
 
-export default Historico;
+export default Historial;

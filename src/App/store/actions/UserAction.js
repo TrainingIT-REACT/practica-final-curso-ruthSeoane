@@ -22,3 +22,8 @@ export const addHistorico = (cancion) => ({
     type: types.ADD_HISTORICO,
     cancion
   });
+
+  export const addHistoricoAlbumes = (album) => ({
+    type: types.ADD_HISTORICO_ALBUMES,
+    album
+  });

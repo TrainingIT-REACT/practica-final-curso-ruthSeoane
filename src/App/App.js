@@ -19,13 +19,16 @@ class App extends Component {
     super(props);
     this.updateUser = this.updateUser.bind(this);
     this.updateCancionActual = this.updateCancionActual.bind(this);
+    this.updateReproduciendo = this.updateReproduciendo.bind(this);
 
       this.state = {
       signedIn: false,
       username: "",
       cancionActual:"",
+      reproduciendo: false,
       updateUser: this.updateUser,
       updateCancionActual: this.updateCancionActual,
+      updateReproduciendo: this.updateReproduciendo,
       generarDropdown: this.generarDropdown,
     }
   }
@@ -40,6 +43,9 @@ class App extends Component {
     this.setState(()=>({cancionActual}));
   }
 
+  updateReproduciendo(reproduciendo){
+    this.setState(()=>({reproduciendo}));
+  }
 
   render() {
     return (

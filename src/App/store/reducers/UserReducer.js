@@ -5,7 +5,8 @@ const initialState = {
     name: "",
     mail: "",
     pass: "",
-    historico: []
+    historico: [],
+    historicoAlbumes: []
 }
 
 // Implementamos el reducer
@@ -31,6 +32,11 @@ const UserReducer = (state = initialState, action) => {
           ...state,
           historico: state.historico.concat(action.cancion)
         };
+      case types.ADD_HISTORICO_ALBUMES:
+        return{
+          ...state,
+          historicoAlbumes: state.historicoAlbumes.concat(action.album)
+        }
     default:
       return state;
   }

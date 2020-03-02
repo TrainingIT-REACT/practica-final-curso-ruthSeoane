@@ -5,6 +5,7 @@ const actions = [
     "UPDATE_MAIL",
     "UPDATE_PASS",
     "ADD_HISTORICO",
+    "ADD_HISTORICO_ALBUMES",
   ];
   
   // Las convertimos en un objeto

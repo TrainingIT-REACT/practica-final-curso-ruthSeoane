@@ -16,6 +16,7 @@ class DropdowContent extends Component{
                     <div className="dropdown-content">
                 <NavLink to="/perfil">Perfil</NavLink>
                 <NavLink to="/historial">Historial</NavLink>
+                <NavLink to="/historialAlbumes">Mis &aacute;lbumes</NavLink>
                 <NavLink to="/logout" onClick={() => updateUser(false, "")}>Log out</NavLink>
             </div>
                 ) : (

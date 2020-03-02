@@ -1,6 +1,9 @@
 
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import store from './../../store/Store';
+import AlbumName from './AlbumName';
 
 //CSS
 import './NuestrosAlbumes.css';
@@ -11,9 +14,11 @@ const ListaAlbums = ({ albums }) => {
         <ul className="albumList">
           {albums.map(album =>   
             <li key={album.id} className="albumItem">
-              <img src={album.cover} alt="Portada"/>
+              <img src={album.cover} alt="Portada"/>  
               <div className = "datos">
-                <NavLink className ="nombreAlbum" to={"/albumes/"+album.id} key={album.id}>{album.name}</NavLink>
+                <Provider store={store}>
+                  <AlbumName album={album}/>
+                </Provider>
                 <div>{album.artist}</div>
               </div>
               <hr/>
