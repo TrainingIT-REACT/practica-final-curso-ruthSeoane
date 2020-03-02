@@ -29,10 +29,9 @@ class AlbumInfo extends React.Component{
     let songs=this.props.canciones.map((cancion, i)=>{
       this.albumSeconds += cancion.seconds;
       return <div className="cancionItem" key={i}>
-        <div className="datosCanciones">
-          <div><i>{cancion.album}</i> {cancion.name} ({this.calcularTiempo(cancion.seconds)})</div>
-                <ReproducirCancion cancionActualizar={cancion}/>
-        </div>
+            <div className="infoCancion"><i>{cancion.album}</i> {cancion.name} ({this.calcularTiempo(cancion.seconds)})
+            
+              <ReproducirCancion cancionActualizar={cancion}/> </div>
       </div>
   });
 
@@ -52,7 +51,7 @@ class AlbumInfo extends React.Component{
           {songs}
         </div>
 
-        Minutos totales: {this.calcularTiempo(this.albumSeconds)}
+        <div className="total">Minutos totales &rarr; {this.calcularTiempo(this.albumSeconds)}</div>
       </div>
     )
   }

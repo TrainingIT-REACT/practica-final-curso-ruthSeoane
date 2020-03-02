@@ -41,7 +41,33 @@
 
 
 .xeral .cancionesList{
+    margin-top: 1%;
     list-style: none;
     padding: 0;  
 }
 
+.xeral .cancionesList .cancionItem .infoCancion{
+    margin: auto;
+    width: available;
+    vertical-align: middle;
+    margin-bottom: 1%;
+}
+
+.xeral .cancionesList .cancionItem button{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;   
+}
+
+.xeral .cancionesList .cancionItem button svg{
+    vertical-align: bottom;
+    position: relative;
+}
+
+.xeral .total{
+    margin-top: 2%;
+    font-size: larger;
+    font-weight: bold;
+}
