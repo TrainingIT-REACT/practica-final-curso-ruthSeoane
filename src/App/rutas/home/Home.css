@@ -1,0 +1,25 @@
+.mejoresAlbumes{
+    margin-top: 2%;
+    padding: 0;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+}
+
+.mejoresAlbumes .albumes{
+    display: table;
+    padding: 0;
+    border: none;
+
+}
+
+.mejoresAlbumes .albumes .infoAlbum{
+    display: table-cell;
+    vertical-align: bottom;
+    border: none;
+    width: 25%;
+}
+
+.mejoresAlbumes .albumes .portadaAlbum img{
+    width: 40%;
+}

@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+import { Provider } from "react-redux";
 
+//Store
+import store from './../../store/Store';
+
+//Componentes
+import MusicaRecomendada from './MusicaRecomendada';
 
 class Home extends Component{
 
@@ -7,8 +13,9 @@ class Home extends Component{
     
         return (
             <div>
-
-<p>Esta es la página principal.</p>
+                <Provider store={store}>
+                    <MusicaRecomendada/>
+                </Provider>
             </div>
         )}
 }

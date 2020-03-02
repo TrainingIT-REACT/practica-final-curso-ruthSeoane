@@ -14,12 +14,10 @@ class AlbumConcreto extends React.Component{
     }
 
     render(){
-        const { isLoadingAlbum, isLoadingSongs, error, albums, cancionesAlbumActual } = this.props.AlbumsReducer;
+        const { isLoading, error, albums, cancionesAlbumActual } = this.props.AlbumsReducer;
 
-        if (isLoadingAlbum){
-            return <p>Cargando informaci&oacute;n del &aacute;lbum...</p>
-        }else if(isLoadingSongs){
-            return <p>Cargando informaci&oacute;n de las canciones...</p>
+        if (isLoading){
+            return <p>Cargando informaci&oacute;n...</p>
         }else if(error){
             return <p>Se produjo un error inesperado</p>
         }else {             
