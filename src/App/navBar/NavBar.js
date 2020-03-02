@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import { Provider } from "react-redux";
 
 //Mis componentes
-import UserContext from '../privateRoute/UserContext';
 import PrivateRoute from './../privateRoute/PrivateRoute';
 import DropdowContent from './DropdowContent';
 import BotonPerfil from './BotonPerfil';
@@ -15,6 +14,7 @@ import Adios from './../rutas/adios/Adios';
 import NuestrosAlbumes from '../rutas/nuestrosAlbumes/NuestrosAlbumes';
 import Home from '../rutas/home/Home';
 import AlbumConcreto from './../rutas/albumConcreto/AlbumConcreto';
+import Historial from './../rutas/historico/Historico';
 
 // Css
 import './NavBar.css';
@@ -24,29 +24,10 @@ import store from './../store/Store';
 
 class NavBar extends Component{
 
-  constructor(props){
-    super(props);
-    this.updateUser = this.updateUser.bind(this);
-
-      this.state = {
-      signedIn: false,
-      username: "",
-      updateUser: this.updateUser,
-      generarDropdown: this.generarDropdown,
-    }
-  }
-
- 
-  updateUser(signedIn, username){
-    this.setState(()=>({signedIn}));
-    this.setState(()=>({username}));
-  }
-
   render(){
     
     return (    
         <Router>
-          <UserContext.Provider value={this.state}>
           <Provider store={store}> 
             <div className="App container">
               <div className="navBar">
@@ -67,12 +48,12 @@ class NavBar extends Component{
               <Route path="/" exact component={Home}/>
               <PrivateRoute exact path="/albumes" component={NuestrosAlbumes}/>
               <Route exact path="/login" component={Login}/>
-              <Route exact path="/perfil" component={Perfil}/>
+              <PrivateRoute exact path="/perfil" component={Perfil}/>
               <Route path="/logout" component={Adios}/>
+              <PrivateRoute path="/historial" component={Historial}/>
               <PrivateRoute exact path={"/albumes/:id"} component={AlbumConcreto}/>
             </div>
             </Provider>
-          </UserContext.Provider>
         </Router>
     )
 

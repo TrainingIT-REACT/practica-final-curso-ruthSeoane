@@ -4,7 +4,8 @@ import types from '../actions/Types';
 const initialState = {
     name: "",
     mail: "",
-    pass: ""
+    pass: "",
+    historico: []
 }
 
 // Implementamos el reducer
@@ -25,6 +26,11 @@ const UserReducer = (state = initialState, action) => {
         ...state,
         pass: action.pass
       };
+      case types.ADD_HISTORICO:
+        return {
+          ...state,
+          historico: state.historico.concat(action.cancion)
+        };
     default:
       return state;
   }

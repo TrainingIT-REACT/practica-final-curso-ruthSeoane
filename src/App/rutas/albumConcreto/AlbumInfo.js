@@ -2,48 +2,60 @@ import React from 'react';
 
 import './AlbumConcreto.css';
 
-
-const secondsToMinutes = ({ time }) => {
-  
-  const minutes = Math.floor(time / 60);
-  const seconds = Math.floor(time - minutes);
-  
-  return minutes+":"+seconds;
-  
-}
+import ReproducirCancion from './ReproducirCancion';
 
 
+class AlbumInfo extends React.Component{
 
-const AlbumInfo = ({ album, canciones }) => {
+  constructor(props) {
+    super(props);
+    
+    this.albumSeconds=0;
+    this.calcularTiempo = this.calcularTiempo.bind(this);
+  }
+
+  calcularTiempo(seconds){
+
+    return(
+      Math.floor(seconds / 60) +
+      ":"+
+      seconds%60    
+    )
+
+  }
+
+  render(){
+
+    let songs=this.props.canciones.map((cancion, i)=>{
+      this.albumSeconds += cancion.seconds;
+      return <div className="cancionItem" key={i}>
+        <div className="datosCanciones">
+          <div><i>{cancion.album}</i> {cancion.name} ({this.calcularTiempo(cancion.seconds)})</div>
+                <ReproducirCancion cancionActualizar={cancion}/>
+        </div>
+      </div>
+  });
 
     return (
       <div className="xeral">
-        
         <div className = "albumInfo"> 
           <div className="portada">   
-            <img src={album.cover} alt="Portada"/>
+            <img src={this.props.album.cover} alt="Portada"/>
           </div>   
           <div className = "datosAlbum"> 
-            <h1>{album.name}</h1>
-            <div className="artist">{album.artist}</div>
+            <h1>{this.props.album.name}</h1>
+            <div className="artist">{this.props.album.artist}</div>
           </div>
         </div>
-         
-        <ul className="cancionesList">
-          {canciones.map(cancion =>   
-            <li key={cancion.id} className="cancionItem">
-              <div className = "datosCanciones">{cancion.name} ({
-                  Math.floor(cancion.seconds / 60) +
-                  ":"+
-                  Math.floor(cancion.seconds - (Math.floor(cancion.seconds / 60))*60)
-                })
-              </div>
-            </li>)}
-        </ul>
+        
+        <div className="cancionesList">
+          {songs}
+        </div>
 
+        Minutos totales: {this.calcularTiempo(this.albumSeconds)}
       </div>
     )
   }
-  
+}
 
 export default AlbumInfo;

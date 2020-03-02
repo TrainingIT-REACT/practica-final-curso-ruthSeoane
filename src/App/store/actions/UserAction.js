@@ -12,7 +12,13 @@ export const updateMail = (mail) => ({
   });
 
   
-export const updatePass= (pass) => ({
+export const updatePass = (pass) => ({
     type: types.UPDATE_PASS,
     pass
+  });
+
+  
+export const addHistorico = (cancion) => ({
+    type: types.ADD_HISTORICO,
+    cancion
   });

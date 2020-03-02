@@ -7,8 +7,7 @@ const initialState = {
     isLoadingSongs: false,
     albums: [],
     error: false,
-    cancionesAlbumActual: [],
-    cancionActual: null
+    cancionesAlbumActual: []
 }
 
 
@@ -53,7 +52,6 @@ const AlbumsReducer = (state = initialState, action) => {
         error: false,
         cancionesAlbumActual: action.payload
       };
-
     default:
       return state;
   }

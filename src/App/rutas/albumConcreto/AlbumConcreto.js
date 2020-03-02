@@ -16,8 +16,6 @@ class AlbumConcreto extends React.Component{
     render(){
         const { isLoadingAlbum, isLoadingSongs, error, albums, cancionesAlbumActual } = this.props.AlbumsReducer;
 
-        console.log(this.props);
-
         if (isLoadingAlbum){
             return <p>Cargando informaci&oacute;n del &aacute;lbum...</p>
         }else if(isLoadingSongs){

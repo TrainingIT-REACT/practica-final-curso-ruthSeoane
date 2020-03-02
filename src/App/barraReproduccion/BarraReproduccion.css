@@ -4,22 +4,31 @@
     width: 100%;
     background-color: #2e3e51;
     text-align: center;
-    padding: 1%;
 }
 
-.barraReproduccion .botonReproduccion{
+.barraReproduccion .cancion{
+  width: 100%;
+  background-color: #3b516b;
+}
+
+.barraReproduccion .botones{
+  background-color: #2e3e51;
+  padding: 1%;
+}
+
+.barraReproduccion .botones .botonReproduccion{
   display: inline-block;
   margin-right: 5%;
   width: fit-content;
   height: auto;
 }
 
-.barraReproduccion .botonReproduccion svg{
+.barraReproduccion .botones .botonReproduccion svg{
     bottom: 0;
     margin: 1%;
 }
 
-.barraReproduccion .botonSubir{
+.barraReproduccion .botones .botonSubir{
   float: right;
 }
 
