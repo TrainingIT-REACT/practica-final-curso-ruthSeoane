@@ -3,23 +3,30 @@ import { Provider } from "react-redux";
 
 import store from './../../store/Store';
 
+import './Perfil.css';
+
 class Perfil extends React.Component{
 
     componentDidMount() {
-        document.getElementById("botonOrigen").classList.add("active");  
+        if(document.getElementById("botonOrigen") !== null)
+            document.getElementById("botonOrigen").classList.add("active");  
       };
 
 
     componentWillUnmount(){
-    document.getElementById("botonOrigen").classList.remove("active")   
+        if(document.getElementById("botonOrigen") !== null)
+            document.getElementById("botonOrigen").classList.remove("active")   
     }
 
     render(){
         return(
-            <Provider store={store}>
-                <p>Nombre usuario: {store.getState().UserReducer.name}</p>
-                <p>Usuario: {store.getState().UserReducer.mail}</p>
-            </Provider>
+            <div className="datosPerfil">
+                <Provider store={store}>
+                    <h1 className="miPerfilText">Mi perfil</h1>
+                    <div className="textoGnal"><div className="textoG">Nombre usuario:&nbsp;</div><div className="textoP">{store.getState().UserReducer.name}</div></div>
+                    <div className="textoGnal"><div className="textoG">Usuario:&nbsp;</div> <div className="textoP">{store.getState().UserReducer.mail}</div></div>
+                </Provider>
+            </div>
 
         )
     }

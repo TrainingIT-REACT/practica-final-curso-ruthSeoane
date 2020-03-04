@@ -19,7 +19,7 @@ class CancionesRecomendadas extends Component{
     if (isLoading){
       return <p>Cargando canciones... </p>
     }else if(error){
-      return <p>Hubo un error al obtener los datos</p>
+      return <p>Hubo un error al obtener las canciones recomendadas</p>
     }else{
       return <ListaCancionesRecomendadas canciones={bestSongs}/>
     }

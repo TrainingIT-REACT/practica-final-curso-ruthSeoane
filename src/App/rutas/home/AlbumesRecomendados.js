@@ -19,7 +19,7 @@ class AlbumesRecomendados extends Component{
     if (isLoading){
       return <p>Cargando... </p>
     }else if(error){
-      return <p>Hubo un error al obtener los datos</p>
+      return <p>Hubo un error al obtener los albumes recomendados</p>
     }else{
       return <ListaAlbumesRecomendados albums={bestAlbums}/>
     }
