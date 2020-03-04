@@ -14,10 +14,13 @@ const Update = ({ updateName, updateMail, updatePass }) => {
   const inputPass = React.createRef();
 
   const onSubmit = (name, mail, pass) => {
-    updateName(name);
+    if (typeof updateName === 'function')
+    updateName(name); 
+    if (typeof updateMail === 'function')
     updateMail(mail);
+    if (typeof updatePass === 'function')
     updatePass(pass);
-    }
+  } 
 
   return (
       <div>
@@ -31,7 +34,7 @@ const Update = ({ updateName, updateMail, updatePass }) => {
           <input id="pass" type="password" ref={inputPass} required />
           <UserContext.Consumer>
         {({  updateUser }) => {
-          return(<button onClick={() => {onSubmit(inputName.current.value, inputMail.current.value, inputPass.current.value); updateUser(true, inputName.current.value);}}>Entrar</button>)
+          return(<button id="submit" onClick={() => {onSubmit(inputName.current.value, inputMail.current.value, inputPass.current.value); updateUser(true, inputName.current.value);}}>Entrar</button>)
         }}
         </UserContext.Consumer>
       </div>)
