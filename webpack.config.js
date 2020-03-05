@@ -3,9 +3,13 @@ const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+    entry: {
+        main:'./src/index.js',
+        vendor: ['react', 'react-dom', 'react-router-dom']
+    },
   output: {
     path: path.resolve(__dirname, 'build'),
+    filename: '[name].[chunkhash:8].js'
   },
   module: {
     rules: [
@@ -49,5 +53,21 @@ module.exports = {
     }
   },
   mode: 'development', //production, none
+  devtool: 'source-map',
+    optimization: {
+        runtimeChunk: 'single',
+        usedExports: true,
+        sideEffects: false,
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: 'vendor',
+                    name: 'vendor',
+                    enforce: true,
+                    chunks: 'all'
+                }
+            }
+        }
+    }
 }
 
