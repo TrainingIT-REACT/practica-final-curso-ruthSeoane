@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 // Importamos la librería de polyfills
 import '@babel/polyfill';
+import 'whatwg-fetch';
 
 ReactDOM.render(
   <main>
