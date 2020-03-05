@@ -12,14 +12,28 @@ class AlbumInfo extends React.Component{
     
     
     this.calcularTiempo = this.calcularTiempo.bind(this);
+    this.anhadirCero = this.anhadirCero.bind(this);
+  }
+
+
+  anhadirCero(cifra){
+    if (cifra<10){
+      return "0"+cifra;
+    }else{
+      return cifra;
+    }
   }
 
   calcularTiempo(seconds){
 
+    let minutosTotales = Math.floor(seconds / 60)
+    let segundosTotales =  this.anhadirCero(seconds%60)
+
+
     return(
-      Math.floor(seconds / 60) +
+      minutosTotales +
       ":"+
-      seconds%60    
+      segundosTotales  
     )
 
   }
