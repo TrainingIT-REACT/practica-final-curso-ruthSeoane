@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// Importamos la librería de polyfills
+import '@babel/polyfill';
 
 ReactDOM.render(
   <main>

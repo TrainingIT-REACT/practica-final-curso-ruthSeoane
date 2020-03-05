@@ -11,12 +11,12 @@ export const getSongsByAlbum = createAsyncAction('SONGS', async (id) => {
 });
 
 export const getBestAlbums = createAsyncAction('BEST_ALBUMS', async () => {
-  const res = await fetch('http://localhost:3001/albums?_start=0&_limit=4');
+  const res = await fetch('/albums?_start=0&_limit=4');
   return await res.json();
 });
 
 export const getBestSongs = createAsyncAction('BEST_SONGS', async () => {
-  const res = await fetch('http://localhost:3001/songs?_start=0&_limit=4');
+  const res = await fetch('/songs?_start=0&_limit=4');
   return await res.json();
 });
   
