@@ -2,7 +2,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
-module.exports = {
+const config = {
     entry: {
         main:'./src/index.js',
         vendor: ['react', 'react-dom', 'react-router-dom']
@@ -71,3 +71,12 @@ module.exports = {
     }
 }
 
+module.exports = (env, argv) => {
+    const isDevelopment = argv.mode === 'development';
+    if (isDevelopment) {
+        config.devtool = 'eval-source-map';
+    } else {
+        config.devtool = 'hidden-source-map';
+    }
+    return config;
+};
