@@ -1,11 +1,13 @@
 // Librerías
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 const config = {
     entry: {
         main:'./src/index.js',
-        vendor: ['react', 'react-dom', 'react-router-dom']
+        vendor: ['react', 'react-dom', 'react-router-dom'],
+        //sw: './src/sw.js'
     },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -29,7 +31,17 @@ const config = {
       template: "./public/index.html",
       filename: "./index.html",
       favicon: './public/favicon.ico'
-    })
+    }),
+    new SWPrecacheWebpackPlugin(
+      {
+        cacheId: 'my-cache',
+        dontCacheBustUrlsMatching: /\.\w{8}\./,
+        filename: 'sw.js',
+        minify: true,
+        navigateFallback: './index.html',
+        staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/]
+      }
+  ),
   ],
   devServer: {
     contentBase: './build',
