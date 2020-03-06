@@ -2,6 +2,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const config = {
     entry: {
@@ -40,7 +41,10 @@ const config = {
         minify: true,
         navigateFallback: './index.html',
         staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/]
-      }
+      },
+      new WorkboxPlugin.InjectManifest({
+        swSrc: './src/sw.js',
+      })
   ),
   ],
   devServer: {
