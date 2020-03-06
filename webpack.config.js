@@ -3,12 +3,13 @@ const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const config = {
     entry: {
         main:'./src/index.js',
         vendor: ['react', 'react-dom', 'react-router-dom'],
-        //sw: './src/sw.js'
+        sw: './src/sw.js'
     },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -44,7 +45,10 @@ const config = {
       },
       new WorkboxPlugin.InjectManifest({
         swSrc: './src/sw.js',
-      })
+      }),
+      new CopyPlugin([
+        { from: 'public', to: '' },
+      ])
   ),
   ],
   devServer: {

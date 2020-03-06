@@ -18,49 +18,41 @@ document.getElementById('root'));
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-const cacheName = "app-files-v1";
+let worker;
+let refreshing=false;
 
-const filesToCache = [
-  '/'
-]
-
-self.addEventListener('install', (event)=>{
-  console.log('El SW ha sido instalado');
-
-  event.waitUntil(
-    caches.open(cacheName).then(cache =>{
-      console.log('Chaché abierta');
-      return cacheName.addAll(filesToCache);
-    } )  
-  )
+document.getElementById('reload').addEventListener('click', () => {
+  worker.postMessage({ action: 'skipWaiting' });
 });
 
-
-self.addEventListener('fetch', function(event){
-  event.respondWith(
-    acches.match(event.request).then(
-      function(response){
-        if (response){
-          console.log("cache");
-          return response;
-        }
-        return fetch(event.request);
-      }
-    )
-  );
-});
-
-
-self.addEventListener('activate', function(e){
-  console.log('activado');
-});
 
 if('serviceWorker' in navigator){
   window.addEventListener('load', ()=>{
     navigator.serviceWorker.register('/sw.js').then((registration) => {
       console.log('El service worker SW se ha registrado correctamente: ', registration.scope);
+
+      registration.addEventListener('updatefound', ()=>{
+        worker = registration.installing;
+
+        worker.addEventListener('statechange', ()=>{
+          if(worker.state === 'installed'){
+            const updateApp = document.getElementById('updateApplication');
+            updateApp.classList.add('show');
+            console.log("show");
+          }
+        })
+      });
+
+
     }, (err) => {
       console.log('El registro del SW ha fallado: ', err);
+    });
+
+    navigator.serviceWorker.addEventListener('controllerchange', ()=>{
+      if (!refreshing){
+        window.location.reload();
+        refreshing=true;
+      }
     });
   });
 }
