@@ -16,9 +16,44 @@ document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-//serviceWorker.unregister();
+serviceWorker.unregister();
+
+const cacheName = "app-files-v1";
+
+const filesToCache = [
+  '/'
+]
+
+self.addEventListener('install', (event)=>{
+  console.log('El SW ha sido instalado');
+
+  event.waitUntil(
+    caches.open(cacheName).then(cache =>{
+      console.log('Chaché abierta');
+      return cacheName.addAll(filesToCache);
+    } )  
+  )
+});
 
 
+self.addEventListener('fetch', function(event){
+  event.respondWith(
+    acches.match(event.request).then(
+      function(response){
+        if (response){
+          console.log("cache");
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
+  );
+});
+
+
+self.addEventListener('activate', function(e){
+  console.log('activado');
+});
 
 if('serviceWorker' in navigator){
   window.addEventListener('load', ()=>{
