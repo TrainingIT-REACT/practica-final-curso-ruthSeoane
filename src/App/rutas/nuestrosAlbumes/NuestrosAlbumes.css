@@ -29,6 +29,8 @@ ul.albumList .albumItem img{
 
  }
 
-
+ .App h1.izquierda{
+   text-align: left;
+}
 
  

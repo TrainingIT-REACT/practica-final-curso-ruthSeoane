@@ -5,12 +5,12 @@ import { Route, Redirect } from 'react-router-dom';
 
 
 import UserContext from "../../privateRoute/UserContext";
-import LogInForm from "./LogInForm";
+import SignInForm from "./SignInForm";
 
 // Store
 import store from './../../store/Store';
 
-class Login extends React.Component{
+class SignIn extends React.Component{
   
     componentDidMount() {
         document.getElementById("botonOrigen").classList.add("active");  
@@ -32,7 +32,7 @@ class Login extends React.Component{
                         }} /> 
                     ) : (
                         <Provider store={store}>
-                            <LogInForm/>
+                            <SignInForm/>
                         </Provider>
                     )
                 } />
@@ -42,4 +42,4 @@ class Login extends React.Component{
     }
 }
 
-export default Login;
+export default SignIn;

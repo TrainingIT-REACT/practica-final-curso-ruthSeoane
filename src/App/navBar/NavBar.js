@@ -16,6 +16,7 @@ import Home from '../rutas/home/Home';
 import AlbumConcreto from './../rutas/albumConcreto/AlbumConcreto';
 import Historial from './../rutas/historico/Historico';
 import HistorialAlbumes from './../rutas/historico/HistoricoAlbumes';
+import SignIn from './../rutas/login/SignIn';
 
 // Css
 import './NavBar.css';
@@ -49,6 +50,7 @@ class NavBar extends Component{
               <Route path="/" exact component={Home}/>
               <PrivateRoute exact path="/albumes" component={NuestrosAlbumes}/>
               <Route exact path="/login" component={Login}/>
+              <Route exact path="/signIn" component={SignIn}/>
               <PrivateRoute exact path="/perfil" component={Perfil}/>
               <Route path="/logout" component={Adios}/>
               <PrivateRoute path="/historial" component={Historial}/>

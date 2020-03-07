@@ -22,7 +22,7 @@ class DropdowContent extends Component{
                 ) : (
                     <div className="dropdown-content">
                 <NavLink to="/login">Log in</NavLink>
-                <NavLink to="/login">Sign in</NavLink>
+                <NavLink to="/signIn">Sign in</NavLink>
             </div>
                 )
             } />

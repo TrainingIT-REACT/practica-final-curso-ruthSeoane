@@ -12,6 +12,7 @@ import './NuestrosAlbumes.css';
 const ListaAlbums = ({ albums }) => {
     return (
         <ul className="albumList">
+          <h1 className="izquierda">Nuestros &aacute;lbumes:</h1>
           {albums.map(album =>   
             <li key={album.id} className="albumItem">
               <img src={album.cover} alt="Portada"/>  

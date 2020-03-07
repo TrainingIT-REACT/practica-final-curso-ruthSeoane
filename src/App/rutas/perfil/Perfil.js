@@ -23,8 +23,22 @@ class Perfil extends React.Component{
             <div className="datosPerfil">
                 <Provider store={store}>
                     <h1 className="miPerfilText">Mi perfil</h1>
-                    <div className="textoGnal"><div className="textoG">Nombre usuario:&nbsp;</div><div className="textoP">{store.getState().UserReducer.name}</div></div>
-                    <div className="textoGnal"><div className="textoG">Usuario:&nbsp;</div> <div className="textoP">{store.getState().UserReducer.mail}</div></div>
+                    <div className="textoGnal">
+                        <div className="textoG">Nombre usuario:&nbsp;</div>
+                        <div className="textoP">{store.getState().UserReducer.name}</div>
+                    </div>
+
+                    <div className="textoGnal">
+                        <div className="textoG">Correo electr&oacute;nico:&nbsp;</div> 
+                        <div className="textoP">
+                            {console.log(store.getState().UserReducer.mail)}
+                            { store.getState().UserReducer.mail !== "" ? (
+                                store.getState().UserReducer.mail
+                            ) :(
+                                "correoEjemplo@proveedor.com"
+                            )}
+                            </div>
+                    </div>
                 </Provider>
             </div>
 
