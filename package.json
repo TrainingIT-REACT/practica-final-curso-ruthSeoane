@@ -23,7 +23,8 @@
     "server": "json-server --watch server/data.json --static server/static --port 3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:integration": "jest -c integration/jest.config.js"
   },
   "eslintConfig": {
     "extends": "react-app"

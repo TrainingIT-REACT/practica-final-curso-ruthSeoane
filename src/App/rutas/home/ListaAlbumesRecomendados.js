@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 //CSS
 import './Home.css'
 
+import AlbumName from '../nuestrosAlbumes/AlbumName';
+
 class ListaAlbumesRecomendados extends React.Component {
 
 
@@ -19,7 +21,7 @@ class ListaAlbumesRecomendados extends React.Component {
 
                 <div className="textoInfoAlbum">
                     <div className="nombreAlbum">
-                        <i><NavLink className ="" to={"/albumes/"+album.id} key={album.id}>{album.name}</NavLink></i>
+                        <i> <AlbumName album={album}/></i>
                     </div>
                     {album.artist}
                 </div>
